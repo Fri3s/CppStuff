@@ -1,14 +1,32 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <string>
 #include <algorithm>
-#include <unordered_map>
+//#include <unordered_map>
 #include <limits.h>
-#include <map>
+//#include <map>
 
 using namespace std;
 
+//WEEK 1: DO YOU KNOW YOUR ABC's 
+
+int main(){
+  ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+
+  vector<uint32_t> nums(7);
+  for (auto& n : nums) cin >> n;
+  sort(nums.begin(), nums.end());
+  
+  uint32_t smallest_0 = nums[0], smallest_1 = nums[1];
+  uint32_t abc_sum = nums[6];
+  uint32_t other_num = abc_sum - smallest_0 - smallest_1;
+
+  cout << smallest_0 << " " << smallest_1 << " " << other_num << "\n";
+}
+
+/*
 //WEEK 1: WORD PROCESSOR
 
 int main(){
@@ -38,7 +56,7 @@ int main(){
 
   cout << "\n";
 }
-/*
+
 //WEEK 1: BLOCKED BILLBOARD 2 
 
 int main(){
@@ -84,7 +102,7 @@ int main(){
   cin >> bill1_x1 >>  bill1_y1 >> bill1_x2 >> bill1_y2; 
   cin >> bill2_x1 >> bill2_y1 >> bill2_x2 >> bill2_y2;
   cin >>  truck_x1 >> truck_y1 >> truck_x2 >> truck_y2;
-  /*
+  
   cout << bill1_x1 <<  bill1_y1 << bill1_x2 << bill1_y2 << "\n";; 
   cout << bill2_x1 << bill2_y1 << bill2_x2 << bill2_y2 << "\n";
   cout <<  truck_x1 << truck_y1 << truck_x2 << truck_y2 << "\n";
