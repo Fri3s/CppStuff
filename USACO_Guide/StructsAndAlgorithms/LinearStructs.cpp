@@ -2,16 +2,44 @@
 //#include <array>
 #include <vector>
 #include <string>
+#include <string_view>
 
 //void iterators();
 //void vectorPractice();
-void stringPractice();
+//void stringPractice();
+void stringViewPractice();
 void printVector(std::vector<int> v);
 
 int main(){
-    stringPractice();
+    stringViewPractice();
     return 0;
 }
+
+void stringViewPractice(){ //string_view is read only std::string
+    using namespace std::string_view_literals;//access sv suffix
+    
+    std::string str = "Hello, World";
+    std::string_view sv {str};
+    //IMP string_view can be created fromstring, c string, string_view
+    std::string s{sv};
+    std::cout << s << static_cast<std::string>(sv) << "\n";
+    //IMP string_view does not implicitly convert to string
+}
+/*
+void stringPractice(){
+  using namespace std::string_literals; //IMP access to s suffix//
+
+  std::cout << "Enter full name: ";
+  std::string name{};
+  std::getline(std::cin >> std::ws, name); //IMP std:ws means ignore whitspace,\n, etc...//
+  //std::cout << "Your name is " << name << "\n"; 
+  std::cout << "Length of name is " << static_cast<int>(name.length()) -1 << "\n";
+  //IMP std::length returns unsigned int//
+  
+  std::cout << "Double quoted strings are C-style by default"s << "\n";
+  //IMP s after double quote string to convert to std::string//
+}
+*/
 
 void printVector(std::vector<int> v){
 
@@ -20,17 +48,7 @@ void printVector(std::vector<int> v){
     }
 }
 
-void stringPractice(){
-  std::cout << "Enter full name: ";
-  std::string name{};
-  std::getline(std::cin >> std::ws, name);
 
-  std::cout << "enter fav color";
-  std::string color{};
-  std::getline(std::cin >> std::ws, color);
-
-  std::cout << "Your name is " << name << " and fav color is " << color << "\n"; 
-}
 /*
 void vectorPractice(){
     std::vector<int> v{1, 2, 3};
