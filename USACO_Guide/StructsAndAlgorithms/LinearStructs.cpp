@@ -3,30 +3,50 @@
 #include <vector>
 #include <string>
 //#include <string_view>
+//#include <utility> //for pairs
+#include <tuple>
 
 //void iterators();
 //void vectorPractice();
 //void stringPractice();
 //void stringViewPractice();
-void pairPractice();
+//void pairPractice();
+void tuplePractice();
 void printVector(std::vector<int> v);
 
 int main(){
-    pairPractice();
+    tuplePractice();
     return 0;
 }
 
-void pairPractice(){
-    std::pair<int, std::string> mypair{15, "Luke"};
-    std::pair<int, int> anotherPair = std::make_pair(67, 76);
+void tuplePractice(){
+    std::cout << "A tuple is fixed size list of heterogenous elements" << "\n";
 
-    cout << "Possible to edit pairs after initialization" << "\n";
-    mypair.second = "Luke Xie";
+    int first, second;
+    std::string third;
+    std::tuple<int, int, std::string> mytuple{1, 2, "three"};
+    std::cout << "Create or unpack tuple elements with std::tie" << "\n";
 
-    cout << "Use tuple methods on pairs" << "\n";
-    cout << "Size of pair is " << anotherPair.tuple_size() << ", 2nd element is " 
-    << anotherPair.tuple_element(1) << "\n";
+    std::tie(first, std::ignore, third) = mytuple; //variables are reference to elements
+    std::cout << first << " " << third << "\n";
+
+    std::cout << "Use std::get<i>(tuple) to get elements, i must be compile time constant" << "\n";
+    int secondElement = std::get<1>(mytuple);
 }
+
+/*
+void pairPractice(){
+    std::cout << "Pairs are tuples with 2 elements" << "\n";
+    std::pair<int, std::string> mypair{15, "Luke"};
+
+    std::cout << "C++ 17 supports creating pairs with structured bindings";
+    auto& [first, second] = mypair; //Unpack the pair, aka extract to sepereate variables
+
+    std::cout << "Possible to edit pairs after initialization" << "\n";
+    first = 5;
+    std::cout << mypair.first << mypair.second << "\n";
+}
+*/
 
 /*
 void stringViewPractice(){ //string_view is read only std::string
