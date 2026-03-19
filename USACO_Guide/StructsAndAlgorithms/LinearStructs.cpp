@@ -19,6 +19,7 @@ int main(){
     return 0;
 }
 
+/*
 void tuplePractice(){
     std::cout << "A tuple is fixed size list of heterogenous elements" << "\n";
 
@@ -33,6 +34,7 @@ void tuplePractice(){
     std::cout << "Use std::get<i>(tuple) to get elements, i must be compile time constant" << "\n";
     int secondElement = std::get<1>(mytuple);
 }
+*/
 
 /*
 void pairPractice(){
