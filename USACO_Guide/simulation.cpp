@@ -8,18 +8,21 @@ using namespace std;
 
 
 int main(){
+	ifstream fin("shell.in");
+    ofstream fout("shell.out");
+	/*
     ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 	cout.tie(nullptr);
-
+	*/
 	int n;
-	cin >> n;
+	fin >> n;
 	vector<int> guesses(n);
 	vector<vector<int>> positions(n);
 	vector<int> currentPos{1,2,3};
 	for (int i = 0; i < n; i++) {
 		int a, b, g;
-		cin >> a >> b >> g;
+		fin >> a >> b >> g;
 		swap(currentPos[a-1], currentPos[b-1]);
 		positions[i] = currentPos;
 		guesses[i] = g;
@@ -34,5 +37,5 @@ int main(){
 	}
 
 	sort(scores.begin(), scores.end());
-	cout << scores[2] << "\n";
+	fout << scores[2] << "\n";
 }
