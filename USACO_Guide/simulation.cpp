@@ -4,10 +4,30 @@
 
 using namespace std;
 
-void pourBucket(vector<tuple<int, int, int>>& curretnAmounts, int i){
+int main(){
+	freopen("cowsignal.in", "r", stdin);
+    freopen("cowsignal.out", "w", stdout);
 
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+
+	int m, n, k;
+	cin >> m >> n >> k;
+	
+	vector<pair<int,int>> amounts(m, {0,0});
+	for (auto& p : amounts){
+		while (n--){
+			char c;
+			cin >> c;
+			if (c == 'x') p.first++;
+			else p.second++
+		}
+	}
 }
 
+/*
+//2018 MIXING MILK DECEMBER
 int main(){
 	freopen("mixmilk.in", "r", stdin);
     freopen("mixmilk.out", "w", stdout);
@@ -30,7 +50,7 @@ int main(){
 
 	for (auto& a : amounts) cout << a << "\n";
 }
-
+*/
 /*
 //SHELL GAME 2019 DECEMBER
 int main(){
